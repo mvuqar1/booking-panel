@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./style4.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-navigation">
+            <div class="stage">
+                <ol class="staff-list">
+                    <li class="custom-icon">Staff</li>
+                    <li class="custom-icon">Service</li>
+                    <li>Date & Time</li>
+                    <li>Confirmation</li>
+                </ol>
+
+            </div>
+
+        </div>
+
+        <div class="content-area">
+            <div class="main-content-section">
+                <div class="select-staf">
+                    <h1>Confirm detailes</h1>
+                    <h1 class="times">&times;</h1>
+                </div>
+
+                <div class="select-services">
+                    <div class="service" data-id="1">
+
+                        <div class="info">
+                            <div class="info-label required">
+                                First name
+                            </div>
+                            <input type="text" required>
+                        </div>
+                        <div class="info">
+                            <div class="info-label required">
+                                Last name
+                            </div>
+                            <input type="text" required>
+                        </div>
+                        <div class="info">
+                            <div class="info-label required">
+                                E-mail
+                            </div>
+                            <input type="email" required>
+                        </div>
+                        <div class="info">
+                            <div class="info-label">
+                                Phone
+                            </div>
+                            <input type="tel">
+                        </div>
+
+                    </div>
+
+                    <div class="note">
+                        <div class="note-label">Note</div>
+                        <div class="note-locals">
+                            <div class="note-local">
+                                <div class="local">
+                                </div>
+                            </div>
+                            <div class="note-local">
+                                <div class="local"></div>
+                            </div>
+                            <div class="note-local">
+                                <div class="local"></div>
+                            </div>
+                            <div class="note-local">
+                                <div class="local"></div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="warning-modal">
+                <div class="warning-content">
+                    <span class="close-warning">&times;</span>
+                    <p>Please, fill the all required fields!</p>
+                </div>
+            </div>
+            <div class="success-modal">
+                <div class="success-content">
+                    <span class="close-success">&times;</span>
+                    <p>Confirmation successfully completed!</p>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <div class="error">
+                    <div class="error-content">
+                        <span class="span-error">!</span> Select Date & Time
+                    </div>
+                </div>
+                <div class="back">
+                    <p>Back</p>
+                </div>
+                <div class="next">
+                    <p id="confirmButton">Confirm Booking</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script4.js"></script>
+
+</body>
+
+</html>

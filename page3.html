@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./style3.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-navigation">
+            <div class="stage">
+                <ol class="staff-list">
+                    <li class="custom-icon">Staff</li>
+                    <li class="custom-icon">Service</li>
+                    <li>Date & Time</li>
+                    <li>Confirmation</li>
+                </ol>
+
+            </div>
+            
+        </div>
+
+        <div class="content-area">
+            <div class="main-content-section">
+                <div class="select-staf">
+                    <h1>Selected date & time</h1>
+                    <h1 class="times">&times;</h1>
+                </div>
+
+                <div class="select-services">
+                    <div class="service" data-id="1">
+                        
+                        <div class="calendar-container">
+                            <div id="calendar"></div>
+                        </div>
+                        <div class="time-container">
+                            <div class="time-flex">
+                                <h2 class="time-title">Time</h2>
+                                <div class="time-list">
+                                    <div class="date-mirrow">
+                                        <p id="selected-date">Select date</p>
+                                    </div>
+                                    <div class="rezerv-time-list">
+                                        <div class="rezerv-time">
+                                            <ul>
+                                                <ol>09:00</ol>
+                                                <ol>09:30</ol>
+                                            </ul>
+                                        </div>
+                                        <div class="rezerv-time">
+                                            <ul>
+                                                <ol>09:30</ol>
+                                                <ol>10:00</ol>
+                                            </ul>
+                                        </div>
+                                        <div class="rezerv-time">
+                                            <ul>
+                                                <ol>10:00</ol>
+                                                <ol>10:30</ol>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination">
+                <div class="error">
+                    <div class="error-content">
+                        <span class="span-error">!</span> Select Date & Time
+                    </div>
+                </div>
+                <div class="back">
+                    <p>Back</p>
+                </div>
+                <div class="next">
+                    <p>next</p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script3.js"></script>
+    
+</body>
+</html>
