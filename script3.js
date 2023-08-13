@@ -69,8 +69,6 @@ flatpickr(calendarContainer, {
                     rezervTime.classList.remove('selected-date');
                 }
             });
-
-            // Остальной код обработки выбранной даты...
         } else {
             selectedDateText.textContent = 'Select date';
             rezervTimeList.style.display = 'none';

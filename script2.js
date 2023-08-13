@@ -25,8 +25,6 @@ services.forEach(service => {
         service.classList.add('selected');
         selectedService = service;
         timesIcon.style.display = 'block';
-
-        // Вызываем функцию при клике на selectedService
         handleServiceSelection(selectedService);
     });
 });
@@ -44,7 +42,6 @@ const nextButton = document.querySelector('.next');
 const error = document.querySelector('.error');
 
 nextButton.addEventListener('click', () => {
-    // Вызываем функцию при клике на nextButton
     handleServiceSelection(selectedService);
 });
 
@@ -55,7 +52,6 @@ back.addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-// Определите функцию для обработки выбора услуги и перехода на следующую страницу
 function handleServiceSelection(service) {
     let selectedServiceName = "";
 
@@ -64,9 +60,9 @@ function handleServiceSelection(service) {
     }
 
     if (!selectedServiceName) {
-        error.style.display = 'flex'; // Показываем блок с ошибкой
+        error.style.display = 'flex';
     } else {
-        error.style.display = 'none'; // Скрываем блок с ошибкой
+        error.style.display = 'none';
 
         if (service.classList.contains('selected')) {
             const id = service.getAttribute('data-id');

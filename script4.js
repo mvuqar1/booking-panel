@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const staffData = JSON.parse(localStorage.getItem('staffData'))[0]; // Обратите внимание на [0] здесь
-    const servicesData = JSON.parse(localStorage.getItem('servicesData'))[0]; // Обратите внимание на [0] здесь
+    const staffData = JSON.parse(localStorage.getItem('staffData'))[0];
+    const servicesData = JSON.parse(localStorage.getItem('servicesData'))[0];
     const rezervData = JSON.parse(localStorage.getItem('rezerv'));
     const timesIcon = document.querySelector('.times');
     const staffNote = document.querySelector('.note-local:nth-child(1) .local');
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const successModal = document.querySelector(".success-modal");
     const closeSuccessButton = document.querySelector(".close-success");
 
-
     closeButton.addEventListener("click", function () {
         warningModal.style.display = "none";
     });
@@ -26,8 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "index.html";
     });
 
-
-    // Вставка данных в соответствующие элементы
     staffNote.innerHTML = `<span>Staff:</span> ${staffData.name}`;
     serviceNote.innerHTML = `<span>Service:</span> ${servicesData.name}`;
     dateNote.innerHTML = `<span>Date:</span> ${rezervData.date} / ${rezervData.start_time} - ${rezervData.end_time}`;
@@ -41,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
     timesIcon.addEventListener("click", function () {
 
         inputs.forEach(input => {
-            input.value = ''; // Очищаем значение input
+            input.value = '';
         });
 
-        timesIcon.style.display = 'none'; // Скрываем иконку
+        timesIcon.style.display = 'none';
     });
 
     inputs.forEach(input => {
@@ -54,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = document.querySelector('.info:nth-child(3) input').value;
             const phone = document.querySelector('.info:nth-child(4) input').value;
 
-            // Проверка заполненности хотя бы одного поля
             if (firstName !== '' || lastName !== '' || email !== '' || phone !== '') {
                 timesIcon.style.display = 'block';
                 warningModal.style.display = "none";
@@ -71,12 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.querySelector('.info:nth-child(3) input').value;
         const phone = document.querySelector('.info:nth-child(4) input').value;
     
-        // Проверка заполненности всех обязательных полей
         if (firstName === '' || lastName === '' || email === '') {
             warningModal.style.display = "block";
-            timesIcon.style.display = 'none'; // Скрыть иконку, так как поля не заполнены
+            timesIcon.style.display = 'none';
         } else {
-            console.log("Fields are filled"); // Добавьте этот вывод для отладки
+            console.log("Fields are filled");
             warningModal.style.display = "none";
             timesIcon.style.display = 'block';
             const userData = {
@@ -85,20 +80,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 "service_id":servicesData.id,
                 "staff_id":staffData.id,
                 "time":rezervData.start_time
-
-                
             };
-        
             console.log(userData);
             successModal.style.display = "block";
             inputs.forEach(input => {
-                input.value = ''; // Очищаем значение input
+                input.value = ''; 
             });
             localStorage.removeItem('staffData')
             localStorage.removeItem('servicesData')
             localStorage.removeItem('rezerv')
         }
-    
-    
     });
 });

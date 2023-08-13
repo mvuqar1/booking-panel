@@ -43,8 +43,8 @@ ol li::before {
     font-weight: bold;
 }
 ol li.custom-icon::before {
-    content: "\2714"; /* Unicode-символ галочки */
-    background-color: #6C70DC; /* Цвет галочки */
+    content: "\2714";
+    background-color: #6C70DC;
     color: #FFFFFF;
     font-weight: bold;
 }
@@ -82,9 +82,9 @@ ol li:nth-child(2)::before {
     width: 98%;
     background-color: #E3EAF3;
     display: block;
-    position: absolute; /* Добавьте это */
-    bottom: -16px; /* Расположение внизу */
-    left: 2%; /* Выравнивание по левому краю */
+    position: absolute;
+    bottom: -16px; 
+    left: 2%; 
 }
 .select-services{
     width: 90%;

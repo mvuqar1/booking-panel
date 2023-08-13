@@ -46,8 +46,8 @@ ol li::before {
 }
 
 ol li.custom-icon::before {
-    content: "\2714"; /* Unicode-символ галочки */
-    background-color: #6C70DC; /* Цвет галочки */
+    content: "\2714"; 
+    background-color: #6C70DC;
     color: #FFFFFF;
     font-weight: bold;
 }

@@ -25,8 +25,6 @@ users.forEach(user => {
         user.classList.add('selected');
         selectedUser = user;
         timesIcon.style.display = 'block';
-
-        // Вызываем функцию при клике на selectedUser
         handleUserSelection(selectedUser);
     });
 });
@@ -44,11 +42,9 @@ const nextButton = document.querySelector('.next');
 const error = document.querySelector('.error');
 
 nextButton.addEventListener('click', () => {
-    // Вызываем функцию при клике на nextButton
     handleUserSelection(selectedUser);
 });
 
-// Определите функцию для обработки выбора пользователя и перехода на следующую страницу
 function handleUserSelection(user) {
     let selectedUserName = "";
 
@@ -57,9 +53,9 @@ function handleUserSelection(user) {
     }
 
     if (!selectedUserName) {
-        error.style.display = 'flex'; // Показываем блок с ошибкой
+        error.style.display = 'flex';
     } else {
-        error.style.display = 'none'; // Скрываем блок с ошибкой
+        error.style.display = 'none';
 
         if (user.classList.contains('selected')) {
             const id = user.getAttribute('data-id');

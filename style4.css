@@ -46,8 +46,8 @@ ol li::before {
 }
 
 ol li.custom-icon::before {
-    content: "\2714"; /* Unicode-символ галочки */
-    background-color: #6C70DC; /* Цвет галочки */
+    content: "\2714"; 
+    background-color: #6C70DC; 
     color: #FFFFFF;
     font-weight: bold;
 }
@@ -98,7 +98,6 @@ ol li:nth-child(4)::before {
     left: 2%;
 }
 
-
 .times {
     display: none;
     color: #ADBFC7;
@@ -106,10 +105,7 @@ ol li:nth-child(4)::before {
 }
 
 
-
-
 .select-services {
-    /* margin: 60px 0px 0px 0px; */
     margin-top: 20px;
     margin-left: 40px;
 }
@@ -149,53 +145,11 @@ ol li:nth-child(4)::before {
     margin-right: 15px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .error {
-    /* ... */
-    position: fixed; /* Используйте position: fixed, чтобы элемент был по центру экрана */
-    top: 50%; /* Перемещаем элемент вверх на 50% высоты экрана */
-    left: 50%; /* Перемещаем элемент влево на 50% ширины экрана */
-    transform: translate(-50%, -50%); /* Используем transform для точной центровки */
-    /* ... */
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
 .error {
@@ -289,14 +243,6 @@ ol li:nth-child(4)::before {
     margin-left: 4px;
 }
 
-
-
-
-
-
-
-
-
 .success-modal,
 .warning-modal {
     display: none;
@@ -305,7 +251,7 @@ ol li:nth-child(4)::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Затемнение заднего фона */
+    background-color: rgba(0, 0, 0, 0.5); 
     z-index: 9999;
 }
 .success-content,
@@ -342,4 +288,3 @@ ol li:nth-child(4)::before {
     padding-top: 12%;
     color: #38CF78;
 }
-

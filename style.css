@@ -78,9 +78,9 @@ ol li:first-child::before {
     width: 98%;
     background-color: #E3EAF3;
     display: block;
-    position: absolute; /* Добавьте это */
-    bottom: -16px; /* Расположение внизу */
-    left: 2%; /* Выравнивание по левому краю */
+    position: absolute;
+    bottom: -16px;
+    left: 2%; 
 }
 .staff-users{
     width: 90%;
