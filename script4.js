@@ -1,3 +1,6 @@
+confirmButton.removeEventListener("click", handleConfirmButtonClick);
+confirmButton.addEventListener("click", handleConfirmButtonClick);
+
 const rezervData = JSON.parse(localStorage.getItem('rezerv'));
 if (!rezervData) {
     window.location.href = "page3.html";
