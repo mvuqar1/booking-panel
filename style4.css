@@ -83,19 +83,19 @@ ol li:nth-child(4)::before {
 .select-staf {
     display: flex;
     justify-content: space-between;
-    padding: 26px 54px;
+    padding: 26px 40px;
     position: relative;
 }
 
 .select-staf::after {
     content: "";
     height: 2px;
-    width: 98%;
+    width: 100%;
     background-color: #E3EAF3;
     display: block;
     position: absolute;
     bottom: -16px;
-    left: 2%;
+    left: 0%;
 }
 
 .times {
@@ -135,6 +135,7 @@ ol li:nth-child(4)::before {
     width: 95.1%;
     padding: 20px;
     height: 160px;
+    margin-top: 10px;
 }
 .note-local{
     margin-top: 5px;

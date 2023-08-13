@@ -89,12 +89,12 @@ ol li:nth-child(3)::before {
 .select-staf::after {
     content: "";
     height: 2px;
-    width: 98%;
+    width: 100%;
     background-color: #E3EAF3;
     display: block;
     position: absolute;
     bottom: -16px;
-    left: 2%;
+    left: 0%;
 }
 
 .select-services {
