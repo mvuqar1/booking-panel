@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
             warningModal.style.display = "block";
             timesIcon.style.display = 'none';
         } else {
-            console.log("Fields are filled");
             warningModal.style.display = "none";
             timesIcon.style.display = 'block';
             const userData = {
