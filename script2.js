@@ -6,7 +6,7 @@ const servicesArray = [];
 const storedServicesData = JSON.parse(localStorage.getItem('servicesData'));
 const staffData = JSON.parse(localStorage.getItem('staffData'));
 
-if(!staffData){
+if (!staffData) {
     window.location.href = "index.html";
 }
 
@@ -45,12 +45,11 @@ timesIcon.addEventListener('click', () => {
 
 const nextButton = document.querySelector('.next');
 const error = document.querySelector('.error');
+const back = document.querySelector('.back');
 
 nextButton.addEventListener('click', () => {
     handleServiceSelection(selectedService);
 });
-
-const back = document.querySelector('.back');
 
 back.addEventListener("click", () => {
     selectedService = null;

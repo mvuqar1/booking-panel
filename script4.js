@@ -1,12 +1,16 @@
-const servicesDataParse = JSON.parse(localStorage.getItem('servicesData'));
-
-if(!servicesDataParse){
-window.location.href = "page3.html";
+const rezervData = JSON.parse(localStorage.getItem('rezerv'));
+if (!rezervData) {
+    window.location.href = "page3.html";
 }
+
 document.addEventListener("DOMContentLoaded", function () {
-    const staffData = JSON.parse(localStorage.getItem('staffData'))[0];
-    const servicesData = JSON.parse(localStorage.getItem('servicesData'))[0];
-    const rezervData = JSON.parse(localStorage.getItem('rezerv'));
+    const closeButtons = document.querySelectorAll(".close-warning, .close-success");
+    const servicesDataParse = JSON.parse(localStorage.getItem('servicesData'));
+
+    if (!servicesDataParse) {
+        window.location.href = "page3.html";
+    }
+
     const timesIcon = document.querySelector('.times');
     const staffNote = document.querySelector('.note-local:nth-child(1) .local');
     const serviceNote = document.querySelector('.note-local:nth-child(2) .local');
@@ -15,23 +19,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const back = document.querySelector('.back');
     
     const inputs = document.querySelectorAll('.info input');
-
     const confirmButton = document.getElementById("confirmButton");
     const warningModal = document.querySelector(".warning-modal");
-    const closeButton = document.querySelector(".close-warning");
     const successModal = document.querySelector(".success-modal");
-    const closeSuccessButton = document.querySelector(".close-success");
 
+    // const rezervData = JSON.parse(localStorage.getItem('rezerv'));
+    const staffData = JSON.parse(localStorage.getItem('staffData'))[0];
+    const servicesData = servicesDataParse[0];
 
+    closeButtons.forEach(button => {
+        button.addEventListener("click", handleCloseModal);
+    });
 
-
-    closeButton.addEventListener("click", function () {
+    function handleCloseModal() {
         warningModal.style.display = "none";
-    });
-    closeSuccessButton.addEventListener("click", function () {
         successModal.style.display = "none";
-        window.location.href = "index.html";
-    });
+        if (this.classList.contains("close-success")) {
+            window.location.href = "index.html";
+        }
+    }
 
     staffNote.innerHTML = `<span>Staff:</span> ${staffData.name}`;
     serviceNote.innerHTML = `<span>Service:</span> ${servicesData.name}`;
@@ -43,60 +49,51 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "page3.html";
     });
 
-    timesIcon.addEventListener("click", function () {
+    timesIcon.addEventListener("click", handleTimesIconClick);
 
+    function handleTimesIconClick() {
         inputs.forEach(input => {
             input.value = '';
         });
-
         timesIcon.style.display = 'none';
-    });
+    }
 
     inputs.forEach(input => {
-        input.addEventListener("input", function () {
-            const firstName = document.querySelector('.info:nth-child(1) input').value;
-            const lastName = document.querySelector('.info:nth-child(2) input').value;
-            const email = document.querySelector('.info:nth-child(3) input').value;
-            const phone = document.querySelector('.info:nth-child(4) input').value;
-
-            if (firstName !== '' || lastName !== '' || email !== '' || phone !== '') {
-                timesIcon.style.display = 'block';
-                warningModal.style.display = "none";
-            } else {
-                timesIcon.style.display = 'none';
-            }
-        });
+        input.addEventListener("input", handleInputChange);
     });
 
+    function handleInputChange() {
+        const valuesNotEmpty = Array.from(inputs).some(input => input.value.trim() !== '');
+        timesIcon.style.display = valuesNotEmpty ? 'block' : 'none';
+        warningModal.style.display = "none";
+    }
 
-    confirmButton.addEventListener("click", function () {
-        const firstName = document.querySelector('.info:nth-child(1) input').value;
-        const lastName = document.querySelector('.info:nth-child(2) input').value;
-        const email = document.querySelector('.info:nth-child(3) input').value;
-        const phone = document.querySelector('.info:nth-child(4) input').value;
-    
-        if (firstName === '' || lastName === '' || email === '') {
+    confirmButton.addEventListener("click", handleConfirmButtonClick);
+
+    function handleConfirmButtonClick() {
+        const [firstName, lastName, email, phone] = inputs;
+
+        if (firstName.value.trim() === '' || lastName.value.trim() === '' || email.value.trim() === '') {
             warningModal.style.display = "block";
-            timesIcon.style.display = 'none';
         } else {
             warningModal.style.display = "none";
             timesIcon.style.display = 'block';
             const userData = {
-                "customer":{name: firstName,surname: lastName,email: email,phone: phone},
-                "date":rezervData.date,
-                "service_id":servicesData.id,
-                "staff_id":staffData.id,
-                "time":rezervData.start_time
+                "customer": { name: firstName.value, surname: lastName.value, email: email.value, phone: phone.value },
+                "date": rezervData.date,
+                "service_id": servicesData.id,
+                "staff_id": staffData.id,
+                "time": rezervData.start_time
             };
             console.log(userData);
-            localStorage.setItem("confirmBooking",JSON.stringify(userData))
+            localStorage.setItem("confirmBooking", JSON.stringify(userData));
             successModal.style.display = "block";
             inputs.forEach(input => {
                 input.value = ''; 
             });
-            localStorage.removeItem('staffData')
-            localStorage.removeItem('servicesData')
-            localStorage.removeItem('rezerv')
+            localStorage.removeItem('staffData');
+            localStorage.removeItem('servicesData');
+            localStorage.removeItem('rezerv');
         }
-    });
+    }
 });

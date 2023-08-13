@@ -102,8 +102,8 @@ ol li:nth-child(4)::before {
     display: none;
     color: #ADBFC7;
     cursor: pointer;
+    animation: fadeIn 0.6s ease-in-out;
 }
-
 
 .select-services {
     margin-top: 20px;
@@ -146,48 +146,6 @@ ol li:nth-child(4)::before {
     margin-right: 15px;
 }
 
-.error {
-    position: fixed;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-}
-
-.error {
-    position: absolute;
-    background-color: #F4BE6C;
-    width: 160px;
-    height: 42px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-}
-
-
-.error-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-}
-
-.span-error {
-    border: solid 3px;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
-    color: #FFFFFF;
-    text-align: center;
-    line-height: 19px;
-}
-
 .next{
     width: 140px;
     height: 36px;
@@ -221,10 +179,6 @@ ol li:nth-child(4)::before {
     border: solid 1px #E3EAF3;
 }
 
-.service.selected {
-    border: 2px solid #53D56C;
-}
-
 .pagination {
     font-weight: bold;
     font-size: 12px;
@@ -246,6 +200,7 @@ ol li:nth-child(4)::before {
 
 .success-modal,
 .warning-modal {
+    animation: fadeIn 0.6s ease-in-out;
     display: none;
     position: fixed;
     top: 0;
@@ -288,4 +243,15 @@ ol li:nth-child(4)::before {
 .success-content p{
     padding-top: 12%;
     color: #38CF78;
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
