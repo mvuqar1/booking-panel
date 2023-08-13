@@ -2,21 +2,31 @@ const calendarContainer = document.getElementById('calendar');
 const selectedDateText = document.getElementById('selected-date');
 const rezervTimeList = document.querySelector('.rezerv-time-list');
 const rezervTimes = document.querySelectorAll('.rezerv-time');
+const timesIcon = document.querySelector('.times');
 
 let rezervArray = [];
 let selectedDate = '';
 
 const servicesData = JSON.parse(localStorage.getItem('servicesData'));
 
-if(!servicesData){
+if (!servicesData) {
     window.location.href = "page2.html";
 }
 
-const storedServicesData = JSON.parse(localStorage.getItem('rezerv'));
+let storedServicesData = JSON.parse(localStorage.getItem('rezerv'));
 if (storedServicesData && storedServicesData.date) {
     selectedDate = storedServicesData.date;
     selectedDateText.textContent = selectedDate;
     rezervTimeList.style.display = 'flex';
+    timesIcon.style.display = 'block';
+
+    timesIcon.addEventListener('click', () => {
+        timesIcon.style.display = 'none';
+        localStorage.removeItem("rezerv");
+        storedServicesData = null;
+        selectedDateText.textContent = 'Select date'; 
+        rezervTimeList.style.display = 'none';
+    });
 
     rezervTimes.forEach(rezervTime => {
         const timeElements = rezervTime.querySelectorAll('ol');
@@ -99,6 +109,7 @@ rezervTimes.forEach(rezervTime => {
                 date: selectedDate,
             };
             localStorage.setItem("rezerv", JSON.stringify(rezervArray));
+            timesIcon.style.display = 'block';
             window.location.href = 'page4.html';
         }
     });
@@ -118,6 +129,7 @@ nextButton.addEventListener('click', () => {
         error.style.display = 'flex';
     } else {
         error.style.display = 'none';
+        timesIcon.style.display = 'block';
         window.location.href = 'page4.html';
     }
 });
