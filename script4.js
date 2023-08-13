@@ -1,3 +1,8 @@
+const servicesDataParse = JSON.parse(localStorage.getItem('servicesData'));
+
+if(!servicesDataParse){
+window.location.href = "page3.html";
+}
 document.addEventListener("DOMContentLoaded", function () {
     const staffData = JSON.parse(localStorage.getItem('staffData'))[0];
     const servicesData = JSON.parse(localStorage.getItem('servicesData'))[0];
@@ -16,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = document.querySelector(".close-warning");
     const successModal = document.querySelector(".success-modal");
     const closeSuccessButton = document.querySelector(".close-success");
+
+
+
 
     closeButton.addEventListener("click", function () {
         warningModal.style.display = "none";
@@ -74,13 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
             warningModal.style.display = "none";
             timesIcon.style.display = 'block';
             const userData = {
-                "customer":{firstName: firstName,lastName: lastName,email: email,phone: phone},
+                "customer":{name: firstName,surname: lastName,email: email,phone: phone},
                 "date":rezervData.date,
                 "service_id":servicesData.id,
                 "staff_id":staffData.id,
                 "time":rezervData.start_time
             };
             console.log(userData);
+            localStorage.setItem("confirmBooking",JSON.stringify(userData))
             successModal.style.display = "block";
             inputs.forEach(input => {
                 input.value = ''; 

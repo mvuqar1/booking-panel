@@ -6,6 +6,12 @@ const rezervTimes = document.querySelectorAll('.rezerv-time');
 let rezervArray = [];
 let selectedDate = '';
 
+const servicesData = JSON.parse(localStorage.getItem('servicesData'));
+
+if(!servicesData){
+    window.location.href = "page2.html";
+}
+
 const storedServicesData = JSON.parse(localStorage.getItem('rezerv'));
 if (storedServicesData && storedServicesData.date) {
     selectedDate = storedServicesData.date;

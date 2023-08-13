@@ -4,6 +4,11 @@ let selectedUser = null;
 const staff = [];
 
 const storedStaffData = JSON.parse(localStorage.getItem('staffData'));
+const confirmBooking = JSON.parse(localStorage.getItem('confirmBooking'));
+
+if (confirmBooking) {
+    console.log(confirmBooking)
+}
 
 if (storedStaffData && storedStaffData.length > 0) {
     const storedId = storedStaffData[0].id;
@@ -71,6 +76,7 @@ function handleUserSelection(user) {
             });
 
             window.location.href = 'page2.html';
+            localStorage.removeItem("confirmBooking")
             localStorage.setItem('staffData', JSON.stringify(staff));
 
             console.log("Selected Staff:", staff);

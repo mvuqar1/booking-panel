@@ -4,6 +4,11 @@ let selectedService = null;
 const servicesArray = [];
 
 const storedServicesData = JSON.parse(localStorage.getItem('servicesData'));
+const staffData = JSON.parse(localStorage.getItem('staffData'));
+
+if(!staffData){
+    window.location.href = "index.html";
+}
 
 if (storedServicesData && storedServicesData.length > 0) {
     const storedId = storedServicesData[0].id;
